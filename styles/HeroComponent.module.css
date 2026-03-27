@@ -1,0 +1,41 @@
+/* ─────────────────────────────────────────────
+   Keyframe Definitions
+───────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  0%   { opacity: 0; transform: translateY(28px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+@keyframes heroLineReveal {
+  0%   { opacity: 0; transform: translateY(16px) scaleX(0.97); letter-spacing: 0.25em; }
+  60%  { letter-spacing: 0.04em; }
+  100% { opacity: 1; transform: translateY(0) scaleX(1); letter-spacing: inherit; }
+}
+
+/* ─────────────────────────────────────────────
+   Animation Classes (staggered delays)
+───────────────────────────────────────────── */
+
+/* Firm name — cinematic letter-spacing collapse */
+.animTitle {
+  animation: heroLineReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.1s;
+}
+
+/* Tagline — soft fade up */
+.animTagline {
+  animation: heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.4s;
+}
+
+/* Body paragraph — slightly later */
+.animBody {
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.65s;
+}
+
+/* Dot indicators — last to appear */
+.animDots {
+  animation: heroFadeUp 0.7s ease both;
+  animation-delay: 0.9s;
+}

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import { LOGO } from "@/utils/Logo";
 import { NAV_LINKS } from "@/utils/Navlinks";
+import logo_path from '@/public/images/papa_logo_2.png';
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
       <body>
-        <Navbar logo={LOGO} links={NAV_LINKS} />
+        <Navbar logo={logo_path} links={NAV_LINKS} />
         <main>{children}</main>
       </body>
     </html>

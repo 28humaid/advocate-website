@@ -3,6 +3,7 @@
 import { CAROUSEL_IMAGES } from "@/utils/Carousel-images";
 import React, { useState, useEffect, useCallback } from "react";
 import DotIndicator from "./DotIndicator";
+import styles from "@/styles/HeroComponent.module.css";
 
 const INTERVAL_MS = 3000; // 3 seconds per image
 
@@ -56,26 +57,28 @@ const HeroComponent = () => {
 
       {/* ── Layer 4: Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center pt-24 px-6 md:px-14 space-y-4 pb-16">
-        <p className="text-light1 font-heading text-4xl md:text-6xl font-bold drop-shadow-xl">
+        <p className={`${styles.animTitle} text-light1 font-heading text-4xl md:text-6xl font-bold drop-shadow-xl`}>
           Alamgir & Associates
         </p>
 
-        <p className="text-light1 font-heading text-2xl font-medium max-w-2xl drop-shadow">
+        <p className={`${styles.animTagline} text-light1 font-heading text-2xl font-medium max-w-2xl drop-shadow`}>
           Providing Principled Legal Counsel Across Civil Matters for Over Three Decades
         </p>
 
-        <p className="text-light1 text-sm font-body font-medium max-w-3xl leading-relaxed opacity-90">
-          Advocate Alamgir has been a trusted name in civil law, representing clients before the Supreme Court of India, Delhi High Court and District Courts with diligence and integrity. With over 32 years of practice, he brings deep expertise across property disputes, family matters, cheque bounce cases, motor accident claims, and all civil litigation. His approach is rooted in thorough preparation, clear communication, and an unwavering commitment to his clients&apos; rights. Whether you are facing a complex legal dispute or need sound legal advice, He offers the experience and dedication your case deserves.
+        <p className={`${styles.animBody} text-light1 text-sm font-body font-medium max-w-3xl leading-relaxed opacity-90`}>
+          Advocate Alamgir has been a trusted name in civil law, representing clients before the Supreme Court of India, Delhi High Court and District Courts with diligence and integrity. <br/> With over 32 years of practice, he brings deep expertise across property disputes, family matters, cheque bounce cases, motor accident claims, and all civil litigation. <br/>His approach is rooted in thorough preparation, clear communication, and an unwavering commitment to his clients&apos; rights. Whether you are facing a complex legal dispute or need sound legal advice, He offers the experience and dedication your case deserves.
         </p>
 
         {/* ── Dot indicators ── */}
-        <DotIndicator
-          CAROUSEL_IMAGES={CAROUSEL_IMAGES}
-          currentIndex={currentIndex}
-          setNextIndex={setNextIndex}
-          setTransitioning={setTransitioning}
-          setCurrentIndex={setCurrentIndex}
-        />
+        <div className={styles.animDots}>
+          <DotIndicator
+            CAROUSEL_IMAGES={CAROUSEL_IMAGES}
+            currentIndex={currentIndex}
+            setNextIndex={setNextIndex}
+            setTransitioning={setTransitioning}
+            setCurrentIndex={setCurrentIndex}
+          />
+        </div>
 
       </div>
     </div>

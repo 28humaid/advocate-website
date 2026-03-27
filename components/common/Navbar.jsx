@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 
 export default function Navbar({ logo, links }) {
@@ -31,7 +32,7 @@ export default function Navbar({ logo, links }) {
 
           {/* Logo — left */}
           <Link href="/" className="flex shrink-0 items-center">
-            {logo}
+            <Image src={logo} alt="PAPA Logo" className="h-11 w-auto object-contain rounded-4xl" style={{ filter: 'invert(100%)' }} width={100} height={100}/>
           </Link>
 
           {/* Desktop links — right (hidden on mobile) */}
@@ -89,7 +90,7 @@ export default function Navbar({ logo, links }) {
         {/* Drawer header */}
         <div className="flex h-16 items-center justify-between border-b border-dark1/10 px-5">
           <Link href="/" onClick={() => setDrawerOpen(false)} className="flex items-center">
-            {logo}
+          <Image src={logo} alt="PAPA Logo" className="h-11 w-auto object-contain rounded-4xl" style={{ filter: 'invert(100%)' }} width={100} height={100}/>
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}

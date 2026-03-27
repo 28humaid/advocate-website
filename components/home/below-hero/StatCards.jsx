@@ -1,4 +1,42 @@
+"use client";
+
 import { stats } from "@/utils/Statcards-data";
+import { useEffect, useRef, useState } from "react";
+
+function AnimatedNumber({ target }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const duration = 1800; // ms
+          const steps = 60;
+          const increment = target / steps;
+          const stepTime = duration / steps;
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, stepTime);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return <span ref={ref}>{count}</span>;
+}
 
 export default function StatCards() {
   return (
@@ -20,7 +58,7 @@ export default function StatCards() {
             </div>
 
             <p className="text-5xl font-serif font-semibold text-dark1 leading-none">
-              {stat.number}+
+              <AnimatedNumber target={stat.number} />+
             </p>
 
             <p className="text-sm text-dark1 leading-relaxed border-t border-dark1 pt-3">
