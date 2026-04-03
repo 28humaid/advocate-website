@@ -1,8 +1,11 @@
+import ContactUs from '@/components/contact-us/ContactUs'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>Contact Us</div>
+    <div className="bg-dark1">
+      <ContactUs/>
+    </div>
   )
 }
 
