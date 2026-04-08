@@ -22,7 +22,7 @@ export const servicesData = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80",
     title: "Family & Matrimonial Matters",
     shortDescription:
       "Compassionate legal guidance through divorce, custody, maintenance, and inheritance.",
